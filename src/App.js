@@ -5,8 +5,8 @@ import Forecast from './components/forecast'
 import Map from './components/map'
 
 const App = () => {
-  const [lat, setLat] = useState(51.505);
-  const [lng, setLng] = useState(-0.09);
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
   const [status, setStatus] = useState(null);
 
   const getLocation = () => {
@@ -23,7 +23,6 @@ const App = () => {
       });
     }
   }
-
 
   return(
     <div>

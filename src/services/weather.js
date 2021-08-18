@@ -1,6 +1,6 @@
 export async function getWeather(lat, lng) {
 
-  const response = await fetch('/api/weather', {
+  const response = await fetch('/api/weather-get', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: {
@@ -9,7 +9,8 @@ export async function getWeather(lat, lng) {
     }
   }
   )
-  return await response.body.json()
+  console.log(response)
+  return await response.data
 }
 
 export default { getWeather }

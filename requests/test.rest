@@ -1,0 +1,6 @@
+POST http://localhost:7071/api/weather-get
+Content-Type: application/json
+
+{
+"lat": 22, "lng": 22
+}

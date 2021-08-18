@@ -1,14 +1,13 @@
-import axios from 'axios'
+export async function getWeather(lat, lng) {
 
-const baseUrl = 'https://aiwear-apim.azure-api.net/api/weather'
-
-const getWeather = async (lat, lng) => {
-  console.log('Getting weather')
-  const config = {
-    headers: {'Ocp-Apim-Subscription-Key': process.env.REACT_APP_WEATHER_KEY}
+  const response = await fetch('/api/weather', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: {
+      'lat': lat,
+      'lng': lng
+    }
   }
-  const response = await axios.get(`${baseUrl}/weather?lat=${lat}&lon=${lng}&units=metric&lang=en&mode=json`, config)
-  return response.data
+  )
+  return await response.json();
 }
-
-export default { getWeather }

@@ -1,15 +1,13 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import './map.css'
 
-const Map = ({ lat, lng}) => {
-  if(!lat || !lng) {
+const Map = ({ lat, lng, status}) => {
+  if(status != 'Ready') {
     return null
   }
-
-  console.log(lat, lng)
     
   return(
-    <MapContainer center={[lat, lng]} zoom={13} zoomControl={true} scrollWheelZoom={false}>
+    <MapContainer center={[lat, lng]} zoom={10} zoomControl={true} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

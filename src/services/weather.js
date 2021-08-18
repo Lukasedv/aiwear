@@ -11,3 +11,5 @@ export async function getWeather(lat, lng) {
   )
   return await response.json();
 }
+
+export default { getWeather }

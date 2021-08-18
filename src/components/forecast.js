@@ -5,6 +5,8 @@ const Forecast = ({weather}) => {
     return null
   }
 
+  console.log(weather)
+
   return(
     <Container>
       <Box m={4} y={2} textAlign='center'>

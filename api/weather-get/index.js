@@ -9,11 +9,21 @@ module.exports = async function(context, req) {
   }
 
   if (req.body.lat && req.body.lng) {
-    const response = await axios.get(`${baseUrl}/weather?lat=${req.body.lat}&lon=${req.body.lng}&units=metric&lang=en&mode=json`, config)
-    context.res = {
-      // status defaults to 200 */
-      body: response.data
-    };
+    const response = await axios
+      .get(`${baseUrl}/weather?lat=${req.body.lat}&lon=${req.body.lng}&units=metric&lang=en&mode=json`, config)
+      .then(response => {
+        context.res = {
+          // status defaults to 200 */
+          body: response.data
+        };
+      })
+      .catch(error => {
+        context.res = {
+          status: 400,
+          body: error
+        };
+
+      })
   }
   else {
     context.res = {

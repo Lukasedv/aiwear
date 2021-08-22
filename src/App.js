@@ -36,7 +36,7 @@ const App = () => {
     <div>
       <Header />
       <Map lat={lat} lng={lng} status={status}/>
-      <Forecast weather={weather}/>
+      <Forecast weather={weather} status={status}/>
       <Container>
         <Box m={4} y={2} textAlign='center'>
           <Button variant='contained' onClick={getLocation}>

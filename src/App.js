@@ -17,14 +17,17 @@ const App = () => {
     } else {
       setStatus('Locating...');
       navigator.geolocation.getCurrentPosition((position) => {
-        setStatus(null);
-        setLat(position.coords.latitude);
-        setLng(position.coords.longitude);
         weatherService
           .getWeather(position.coords.latitude, position.coords.longitude)
           .then(returnedWeather => {
+            console.log('returnedweather: ', returnedWeather)
             setWeather(returnedWeather)
+            setLat(position.coords.latitude);
+            setLng(position.coords.longitude);
             setStatus('Ready')
+          })
+          .catch(error => {
+            console.log(error)
           })
       }, () => {
         setStatus('Unable to retrieve your location');

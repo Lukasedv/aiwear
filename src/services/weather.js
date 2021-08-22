@@ -7,9 +7,9 @@ export const getWeather = async position => {
     "lng": position.coords.longitude
   }
 
-  console.log(coordinates)
   try {
     const response = await axios.post('/api/weather-get', coordinates)
+    console.log(response)
     return response.data
   } catch (error) {
     console.error(error)

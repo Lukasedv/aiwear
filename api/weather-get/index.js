@@ -8,11 +8,12 @@ module.exports = async function(context, req) {
     headers: {'Ocp-Apim-Subscription-Key': process.env["REACT_APP_WEATHER_KEY"]}
   }
 
+  console.log(config)
+
   try {
-    const response = await axios.get(`${baseUrl}/weather?lat=${req.body.lat}&lon=${req.body.lng}&units=metric&lang=en&mode=json`, config)
     context.res = {
       // status defaults to 200 */
-      body: response.data
+      body: config
     };
   } catch (err) {
     context.res = {

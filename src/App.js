@@ -18,7 +18,7 @@ const App = () => {
       setStatus('Locating...');
       navigator.geolocation.getCurrentPosition((position) => {
         weatherService
-          .getWeather(position.coords.latitude, position.coords.longitude)
+          .getWeather(position)
           .then(returnedWeather => {
             console.log('returnedweather: ', returnedWeather)
             setWeather(returnedWeather)

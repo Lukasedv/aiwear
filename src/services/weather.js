@@ -1,23 +1,16 @@
-export async function getWeather(latitude, longitude) {
+import axios from 'axios'
+
+export const getWeather = async position => {
 
   const coordinates = {
-    "lat": latitude,
-    "lng": longitude
+    "lat": position.coords.latitude,
+    "lng": position.coords.longitude
   }
 
-  try {
-    const response = await fetch('/api/weather-get', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(coordinates)
-    })
+  console.log(coordinates)
 
-    return await response.json()
-
-  } catch (error) {
-    console.log(error)
-  }
-
+  const response = await axios.post('/api/weather-get', coordinates)
+  return response.data
 }
 
 export default { getWeather }

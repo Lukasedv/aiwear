@@ -6,6 +6,6 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
+  "dependencies": {"axios": "^0.21.1"},
   "devDependencies": {}
 }

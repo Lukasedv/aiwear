@@ -8,9 +8,13 @@ export const getWeather = async position => {
   }
 
   console.log(coordinates)
+  try {
+    const response = await axios.post('/api/weather-get', coordinates)
+    return response.data
+  } catch (error) {
+    console.error(error)
+  }
 
-  const response = await axios.post('/api/weather-get', coordinates)
-  return response.data
 }
 
 export default { getWeather }

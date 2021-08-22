@@ -8,28 +8,18 @@ module.exports = async function(context, req) {
     headers: {'Ocp-Apim-Subscription-Key': process.env.REACT_APP_WEATHER_KEY}
   }
 
-  if (req.body.lat && req.body.lng) {
-    const response = await axios
-      .get(`${baseUrl}/weather?lat=${req.body.lat}&lon=${req.body.lng}&units=metric&lang=en&mode=json`, config)
-      .then(response => {
-        context.res = {
-          // status defaults to 200 */
-          body: response.data
-        };
-      })
-      .catch(error => {
-        context.res = {
-          status: 400,
-          body: error
-        };
-
-      })
-  }
-  else {
+  try {
+    const response = await axios.get(`${baseUrl}/weather?lat=${req.body.lat}&lon=${req.body.lng}&units=metric&lang=en&mode=json`, config)
     context.res = {
-      status: 400,
-      body: "Please pass a query string or in the request body"
+      // status defaults to 200 */
+      body: response.data
     };
+  } catch (err) {
+    context.res = {
+      // status defaults to 200 */
+      body: err
+    };
+    console.error(err);
   }
   context.done();
 };

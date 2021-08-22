@@ -11,7 +11,7 @@ export async function getWeather(latitude, longitude) {
     body: JSON.stringify(coordinates)
   }
   )
-  return response.json()
+  return await response.json()
 }
 
 export default { getWeather }

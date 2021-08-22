@@ -5,12 +5,10 @@ const Forecast = ({weather, status}) => {
     return null
   }
 
-  console.log('weather object: ', weather)
-
   return(
     <Container>
       <Box m={4} y={2} textAlign='center'>
-        <Typography>The forecast for {weather.name}  is {weather.main.temp}  degrees and {weather.weather[0].description}  </Typography>
+        <Typography>The forecast for {weather.name}  is {weather.main.temp}  degrees and {weather.weather[0].description} </Typography>
       </Box>
     </Container>
   )

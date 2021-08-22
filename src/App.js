@@ -3,6 +3,7 @@ import { Box, Button, Container } from '@material-ui/core'
 import Header from './components/header'
 import Forecast from './components/forecast'
 import Map from './components/map'
+import Clothes from './components/clothes'
 import weatherService from './services/weather'
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
       <Header />
       <Map lat={lat} lng={lng} status={status}/>
       <Forecast weather={weather} status={status}/>
+      <Clothes status={status} />
       <Container>
         <Box m={4} y={2} textAlign='center'>
           <Button variant='contained' onClick={getLocation}>

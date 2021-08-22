@@ -5,7 +5,7 @@ const baseUrl = 'https://aiwear-apim.azure-api.net/api/weather';
 module.exports = async function(context, req) {
   context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
   const config = {
-    headers: {'Ocp-Apim-Subscription-Key': process.env.REACT_APP_WEATHER_KEY}
+    headers: {'Ocp-Apim-Subscription-Key': process.env["REACT_APP_WEATHER_KEY"]}
   }
 
   try {
